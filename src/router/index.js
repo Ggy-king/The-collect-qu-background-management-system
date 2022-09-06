@@ -1,36 +1,73 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
+// 引入子路由
+import PdfUpload from '@/views/PdfUpload'
+import ImgUpload from '@/views/ImgUpload'
+import CheckCollect from '@/views/CheckCollect'
+import DoneCollect from '@/views/DoneCollect'
+import StudentManage from '@/views/StudentManage'
+import WelcomeView from '@/views/WelcomeView'
+
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/pdfupload',
-    name: 'pdfupload',
-    component: () => import(/* webpackChunkName: "PdfUpload" */ '../views/PdfUpload.vue')
-  },
-  {
-    path: '/imgupload',
-    name: 'imgupload',
-    component: () => import(/* webpackChunkName: "ImgUpload" */ '../views/ImgUpload.vue')
-  },
-  {
-    path: '/checkcollect',
-    name: 'checkcollect',
-    component: () => import(/* webpackChunkName: "CheckCollect" */ '../views/CheckCollect.vue')
-  },
-  {
-    path: '/donecollect',
-    name: 'donecollect',
-    component: () => import(/* webpackChunkName: "DoneCollect" */ '../views/DoneCollect.vue')
-  },
-  {
-    path: '/studentmanage',
-    name: 'studentmanage',
-    component: () => import(/* webpackChunkName: "StudentManage" */ '../views/StudentManage.vue')
+    component: HomeView,
+    meta: {
+      title: '首页'
+    },
+    redirect:'/welcomeview',
+    children:[
+      {
+        path: 'welcomeview',
+        name: 'welcomeview',
+        meta: {
+          title: '欢迎来到收题管理后台'
+        },
+        component:WelcomeView
+      },
+      {
+        path: 'pdfupload',
+        name: 'pdfupload',
+        meta: {
+          title: 'PDF收题系统'
+        },
+        component:PdfUpload
+      },
+      {
+        path: 'imgupload',
+        name: 'imgupload',
+        meta: {
+          title: 'IMG收题体统'
+        },
+        component:ImgUpload
+      },
+      {
+        path: 'checkcollect',
+        name: 'checkcollect',
+        meta: {
+          title: '寻找更多优秀的题集'
+        },
+        component:CheckCollect
+      },
+      {
+        path: 'donecollect',
+        name: 'donecollect',
+        meta: {
+          title: '查看已收藏'
+        },
+        component:DoneCollect
+      },
+      {
+        path: 'studentmanage',
+        name: 'studentmanage',
+        meta: {
+          title: '学生管理后台'
+        },
+        component:StudentManage
+      },
+    ]
   }
 ]
 

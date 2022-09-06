@@ -46,9 +46,9 @@
 
 <script>
 import { TeamOutlined,ToTopOutlined,StarOutlined } from '@ant-design/icons-vue';
-import { defineComponent, ref } from 'vue';
+import { ref,defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
     name:'SiderCom',
     components: {
         StarOutlined,
@@ -56,40 +56,48 @@ export default {
         TeamOutlined,
     },
 
-    data() {
+  data() {
     return {
       collapsed: ref(false),
       selectedKeys: ref(['0']),
     }
   },
+  methods: {
+
+  },
+
 
   watch: {
-    selectedKeys(value) {
-      let numRoute = Number(this.selectedKeys[0])
-      console.log(numRoute)
-      switch (numRoute) {
-        case 1:
-          this.$router.push({path:'/pdfupload'})
-          break;
-        case 2:
-          this.$router.push({path:'/imgupload'})
-          break;
-        case 3:
-          this.$router.push({path:'/checkcollect'})
-          break;
-        case 4:
-          this.$router.push({path:'/donecollect'})
-          break;
-        case 5:
-          this.$router.push({path:'/studentmanage'})
-          break;
-        default:
-          break;
+    selectedKeys:{
+        immediate:true,
+        handler(oldValue){
+        let numRoute = Number(this.selectedKeys[0])
+        switch (numRoute) {
+            case 1:
+            this.$router.push({path:'/pdfupload'})
+            break;
+            case 2:
+            this.$router.push({path:'/imgupload'})
+            break;
+            case 3:
+            this.$router.push({path:'/checkcollect'})
+            break;
+            case 4:
+            this.$router.push({path:'/donecollect'})
+            break;
+            case 5:
+            this.$router.push({path:'/studentmanage'})
+            break;
+            default:
+                break;
+        }
+        
       }
-    }
+    }   
   }
+  
 
-}
+})
 </script>
 
 <style lang="scss">
@@ -122,8 +130,6 @@ export default {
 }
 .ant-menu-item-selected {
   color: #f25650 !important;
-}
-.ant-menu-item-selected {
   background-color: #5a6573 !important;
 }
 .site-layout .site-layout-background {

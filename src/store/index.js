@@ -1,8 +1,9 @@
 import { createStore } from 'vuex'
+import { ref } from 'vue';
+
 
 export default createStore({
-  state: {
-  },
+ 
   getters: {
   },
   mutations: {

@@ -1,7 +1,7 @@
 <template>
     <a-layout-header style="background: #fff; padding: 0">
         <span class="head-title-str">您好 </span>
-        <span class="head-title-nor"> / 欢迎体验收题系统</span>
+        <span class="head-title-nor"> <strong class="str-title"> —— </strong> 欢迎体验收题系统</span>
     </a-layout-header>
 </template>
   
@@ -21,5 +21,8 @@
 .head-title-nor {
   font-size: 14px;
   color:rgb(63, 53, 53);
+}
+.str-title {
+  font-weight: 900;
 }
 </style>

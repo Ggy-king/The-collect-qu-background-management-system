@@ -1,5 +1,12 @@
 <template>
-  <div class="welcome">
+  <!-- 地址提示 -->
+  <a-breadcrumb style="margin: 16px 0">
+  <a-breadcrumb-item>首页</a-breadcrumb-item>
+  <a-breadcrumb-item>Welcome!</a-breadcrumb-item>
+  </a-breadcrumb>
+  <!-- 主体部分 -->
+  <div :style="{ padding: '24px', background: '#fff', minHeight: '600px' }">
+    <div class="welcome">
     <div class="content">
       <div class="sub-title">欢迎来到</div>
       <div class="title">收题后台管理系统</div>
@@ -9,8 +16,9 @@
     </div>
     <!-- <div class="img"></div> -->
   </div>
-</template>
+  </div>
 
+</template>
 <script>
   
 export default {
@@ -57,3 +65,12 @@ export default {
   }
 }
 </style>
+
+
+
+
+
+
+
+
+
