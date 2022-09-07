@@ -5,17 +5,21 @@
         <a-breadcrumb-item>寻找更多优秀的题集</a-breadcrumb-item>
         </a-breadcrumb>
         <!-- 主体部分 -->
-        <div :style="{ padding: '24px', background: '#fff', minHeight: '600px' }">
-          
+        <div :style="{ padding: '24px', background: '#fff', minHeight: '600px',position:'relative' }">
+           <BottomA />
+           <CheckList />
         </div>
 
 </template>
 <script>
 import { defineComponent } from 'vue';
+import BottomA from '@/views/check/BottomA.vue';
+import CheckList from './check/CheckList.vue';
 
 
 export default defineComponent({
-name:'CheckCollect',
+    name: "CheckCollect",
+    components: { BottomA, CheckList,  }
 });
 </script>
 <style>

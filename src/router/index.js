@@ -68,6 +68,15 @@ const routes = [
         component:StudentManage
       },
     ]
+  }, {
+    path: '/loginview',
+    name: 'loginview',
+    component: () => import(/* webpackChunkName: "LoginView" */ '../views/login/LoginView.vue'),
+    // 在跳转到这个页面之前 
+    // beforeEnter(to, from, next) {
+    //   const { isLogin } = localStorage;
+    //   isLogin ? next({ name: 'Home' }) : next();
+    // }
   }
 ]
 

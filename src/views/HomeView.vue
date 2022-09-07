@@ -13,12 +13,13 @@
   </a-layout>
 </template>
 <script>
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
 // 公共组件
 import SiderCom from '@/components/SiderCom'
 import HeaderCom from '@/components/HeaderCom'
 import FooterCom from '@/components/FooterCom'
 export default defineComponent({
+  name:'HomeView',
   components: {
     SiderCom,
     HeaderCom,
@@ -26,5 +27,3 @@ export default defineComponent({
 },
 });
 </script>
-<style>
-</style>
