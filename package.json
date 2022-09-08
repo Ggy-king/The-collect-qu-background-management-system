@@ -1,6 +1,6 @@
 {
   "name": "collect-qu",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,10 +9,14 @@
   },
   "dependencies": {
     "ant-design-vue": "^3.2.12",
+    "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "cropperjs": "^1.5.12",
     "echarts": "^5.3.3",
+    "element-plus": "^2.2.16",
     "less-loader": "^11.0.0",
     "vue": "^3.2.13",
+    "vue-cropper": "^0.5.8",
     "vue-pdf": "^4.3.0",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"

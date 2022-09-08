@@ -3,10 +3,10 @@
       <!-- 地址提示 -->
       <a-breadcrumb style="margin: 16px 0">
         <a-breadcrumb-item>首页</a-breadcrumb-item>
-        <a-breadcrumb-item>PDF收题系统</a-breadcrumb-item>
+        <a-breadcrumb-item>IMG收题系统</a-breadcrumb-item>
       </a-breadcrumb>
       <!-- 主体部分 -->
-      <div :style="{ padding: '10px', background: '#fff', minHeight: '640px',position: 'relative' }">
+      <div :style="{ padding: '10px', background: '#fff', minHeight: '800px',position: 'relative' }">
           <StepsA />
           <ImgUp />
       </div>

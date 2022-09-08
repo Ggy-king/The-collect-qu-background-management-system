@@ -1,68 +1,133 @@
 <template>
-    <div class="abc">
-        <el-row>
-            <el-button @click="onPreview" size="small">预览</el-button>
-        </el-row>
-        <el-dialog title="预览合同附件" v-model:visible="viewVisible" center width="60%" @close='closePreview'>
-            <el-row :gutter="20">
-                <span>共{{pageCount}}页， 当前第 {{pdfPage}} 页 </span>
-                <el-button type="text" size="mini" @click.stop="previousPage">上一页</el-button>
-                <el-button type="text" size="mini" @click.stop="nextPage">下一页</el-button>
-            </el-row>
-            <div>
-                <pdf :src="src" :page="pdfPage" @num-pages="pageCount = $event" @page-loaded="pdfPage = $event" style="display: inline-block; width: 100%"></pdf>
-            </div>
-        </el-dialog>
+<div class="main">
+    <a-button class="small" style="margin-right:2px;">第一题</a-button>
+    <a-button class="small" style="margin-right:2px;">第二题</a-button>
+    <a-button class="small" style="margin-right:2px;">第三题</a-button>
+    <a-button class="small" style="margin-right:2px;">第四题</a-button>
+    <div style="float:right">
+        <a-button style="margin-right:10px" class="small">删除此题</a-button>
+        <a-button class="small">上传此题</a-button>
     </div>
+    <div class="main_context">
+        <div class="before"></div>
+    </div>
+    <div class="show_title show_cor">裁剪区</div>
+    <a-button @click="sureSava" class="show_btn small">裁剪保存</a-button>
+    <div class="container">
+        <div class="img-container">
+            <img src="../../assets/images/imgs/7.png" ref="image" alt=""> 
+        </div>
+        <div class="afterCropper">
+            <img :src="afterImg" alt="">
+        </div>
+    </div>
+</div>
 </template>
+
 <script>
-import pdf from 'vue-pdf'
-import store from '@/store/'
-export default {
-    components:{
-        pdf
-    },
-    data(){
-        return {
-            viewVisible: false,
-            src: null,
-            pdfPage : 1,
-            pageCount: 0,
-            token: store.getters.access_token,
-        }
-    },
-    methods:{
-        onPreview(){
-            this.src = pdf.createLoadingTask({
-                url: 'chrome-extension://ibllepbpahcoppkjjllbabhnigcbffpi/file:///C:/Users/HP/Desktop/C017%20%E8%96%84%E6%99%93%E6%A5%A0%20-%E8%91%A3%E4%B8%80%E5%B8%86-%E9%AB%98%E5%B9%BF%E6%BA%90(5).pdf',
-                httpHeaders: {Authorization:'Bearer '+ this.token}
-            });
-            this.src.promise.then(pdf => {
-                this.viewVisible = true;
-            });
-        },
-        closePreview(){
-            this.pdfPage = 1;
-        },
-        previousPage(){
-            let p = this.pdfPage
-            p = p > 1 ? p-1 : this.pageCount
-            this.pdfPage = p
-        },
-        nextPage(){
-            let p = this.pdfPage
-            p = p < this.pageCount ? p+1 : 1
-            this.pdfPage = p
-        }
+import Cropper from 'cropperjs'
+import 'cropperjs/dist/cropper.css'
+import { defineComponent } from 'vue';
+import { message } from 'ant-design-vue';
+
+export default defineComponent ({
+name: 'HelloWorld',
+data () {
+    return {
+    myCropper: null,
+    afterImg: ''
     }
-}
+},
+mounted() {
+    this.init()
+},
+methods: {
+    init(){
+    this.myCropper = new Cropper(this.$refs.image, {
+        viewMode: 2,
+        dragMode: 'crop',
+        initialAspectRatio: 1,
+        aspectRatio: 0,
+        preview: '.before',
+        background: true,
+        autoCropArea: 0.6,
+        zoomOnWheel: true,
+    })
+    },
+    sureSava(){
+    this.afterImg = this.myCropper.getCroppedCanvas({
+        imageSmoothingQuality: 'high'
+    }).toDataURL('image/jpeg')
+    message.success('已裁剪')
+    }
+},
+})
 </script>
 
 <style lang="scss">
-.abc {
-    position: absolute;
-    top: 0;
-    background-color: red;
-    z-index: 999;
+.small {
+    font-size: 12px;
+    height: 26px;
+    width: 76px;
+}
+.main {
+position: absolute;
+top: 110px;
+left: 600px;
+
+}
+.container{
+// display: flex;
+}
+.show_title {
+display: inline-block;
+border: 1px solid #ccc;
+height: 26px;
+width: 60px;
+font-size: 12px;
+font-weight: bold;
+text-align: center;
+line-height: 26px;
+}
+.show_cor {
+margin: 5px 0;
+}
+.show_btn {
+float: right;
+margin: 5px 0;
+}
+.main_context { 
+margin-top: 5px;
+padding: 5px;
+width: 660px;
+height: 240px;
+border: 2px solid black;
+background-color: #ccc;
+}
+.before{
+width: 646px;
+height: 226px;
+overflow: hidden;
+/* 这个属性可以得到想要的效果 */
+}
+.img-container{
+width: 660px;
+height: 240px;
+overflow: hidden;
+}
+.afterCropper{
+height: 294px;
+margin-top: 10px;
+padding: 5px;
+border: 1px solid salmon; 
+text-align: center;
+line-height: 284px;
+
+background-color: #ccc;
+
+}
+.afterCropper img{
+width: 500px;
+max-height: 280px;
 }
 </style>

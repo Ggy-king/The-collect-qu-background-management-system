@@ -1,6 +1,6 @@
 <template>
 <span class="remarks">列表中左侧加号点击可展开图片</span>
-<a-table :columns="columns" :data-source="data" :scroll="{ y:440,x: 1500 }" style="margin:20px 0 0 0">
+<a-table :columns="columns" :data-source="data" :scroll="{ y:440,x: 1500 }" style="margin:20px 0 0 0;">
     <template #bodyCell="{ column }">
     <template v-if="column.key === 'action'">
         <!-- action为删除 -->
@@ -48,28 +48,28 @@ key: 1,
 Cname: '21级物理试卷第13期',
 Csubject: '物理',
 Cnian: '高一上册',
-Ctype: '类型一',
+Ctype: '选择题',
 Cknow: '知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点',
 }, {
 key: 2,
 Cname: '21级物理试卷第14期',
 Csubject: '数学',
 Cnian: '高二上册',
-Ctype: '类型二',
+Ctype: '填空题',
 Cknow: '知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点',
 }, {
 key: 3,
 Cname: '21级物理试卷第15期',
 Csubject: '英语',
 Cnian: '初三上册',
-Ctype: '类型三',
+Ctype: '判断题',
 Cknow: '知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点',
 },{
 key: 4,
 Cname: '21级物理试卷第16期',
 Csubject: '英语',
 Cnian: '初三上册',
-Ctype: '类型四',
+Ctype: '简答题',
 Cknow: '知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点知识点',
 }];
 export default defineComponent({
@@ -90,7 +90,7 @@ setup() {
     top: 80px;
     right: 24px;
     font-size: 13px;
-    // font-weight: bold;
     color: #aaa;
+    // background-color: #fafafa;
 }
 </style>

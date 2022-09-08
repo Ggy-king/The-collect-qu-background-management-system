@@ -7,7 +7,7 @@
     </div>
     </template>
     <template #renderItem="{ item }">
-    <a-list-item key="item.title">
+    <a-list-item key="item.title" style="background-color: #eaeaea; margin-bottom: 6px;">
         <template #actions>
         <span v-for="{ type, text } in actions" :key="type">
             <component :is="type" style="margin-right: 2px" />

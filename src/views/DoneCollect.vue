@@ -5,7 +5,7 @@
     <a-breadcrumb-item>查看已收藏</a-breadcrumb-item>
     </a-breadcrumb>
     <!-- 主体部分 -->
-    <div :style="{ padding: '24px', minHeight: '600px' }" class="bgc">
+    <div :style="{ padding: '14px', minHeight: '600px' }" class="bgc">
       <DoneList />
     </div>
 

@@ -1,6 +1,6 @@
 <template>
   <a-upload-dragger
-    style="width: 550px;padding-top: 200px;"
+    style="width: 550px;padding-top: 300px;"
     :max-count="1"
     v-model:fileList="fileList"
     name="file"

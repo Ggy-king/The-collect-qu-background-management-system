@@ -71,18 +71,26 @@ const routes = [
   }, {
     path: '/loginview',
     name: 'loginview',
+    meta: {
+      title: '登录页面'
+    },
     component: () => import(/* webpackChunkName: "LoginView" */ '../views/login/LoginView.vue'),
     // 在跳转到这个页面之前 
-    // beforeEnter(to, from, next) {
-    //   const { isLogin } = localStorage;
-    //   isLogin ? next({ name: 'Home' }) : next();
-    // }
+    beforeEnter(to, from, next) {
+      let isLogin = sessionStorage.getItem('isLogin');
+      (isLogin === 'sure') ? next({ name: 'welcomeview' }) : next();
+    }
   }
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  let isLogin = sessionStorage.getItem('isLogin');
+  ((isLogin !== 'sure') && to.name !== 'loginview') ? next({ name: 'loginview' }) : next();
 })
 
 export default router

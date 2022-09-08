@@ -1,5 +1,5 @@
 <template>
-<div class="clearfix" style="position: absolute;top:20px;left:240px;width: 400px;height: 550px;border: 2px solid #aaa;text-align: center; padding-top: 10px;">
+<div class="clearfix" style="position: absolute;top:20px;left:240px;width: 400px;height: 700px;border: 2px solid #aaa;text-align: center; padding-top: 10px;">
     <a-upload
     directory
     :before-upload="beforeUpload"
