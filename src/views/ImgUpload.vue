@@ -7,8 +7,10 @@
       </a-breadcrumb>
       <!-- 主体部分 -->
       <div :style="{ padding: '10px', background: '#fff', minHeight: '800px',position: 'relative' }">
+          <ImgSearch />
           <StepsA />
           <ImgUp />
+          <ImgRight />
       </div>
 
   
@@ -17,11 +19,13 @@
 import { defineComponent } from 'vue';
 import ImgUp from './imgup/ImgUp.vue';
 import StepsA from './imgup/StepsA.vue';
+import ImgSearch from './imgup/ImgSearch.vue';
+import ImgRight from './imgup/ImgRight.vue';
 // 公共组件
 
 export default defineComponent({
     name: "PdfUpload",
-    components: { StepsA, ImgUp }
+    components: { StepsA, ImgUp, ImgSearch, ImgRight }
 });
 
 </script>

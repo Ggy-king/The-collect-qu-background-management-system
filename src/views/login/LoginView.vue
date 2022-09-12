@@ -18,13 +18,13 @@ export default {
     height: 100vh;
     overflow: hidden;
     // min-height: 750px;
-    background-image: url(../../assets/images/loginfive.jpg);
+    background-image: url(../../assets/images/loginsix.png);
     background-size: 100% 100%;
     color: #fff;
 }
 .login_data {
     position:absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 500px;
